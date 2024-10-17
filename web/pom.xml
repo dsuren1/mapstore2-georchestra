@@ -425,39 +425,7 @@
           </overlays>
         </configuration>
       </plugin>
-
-    <plugin>
-        <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven3-plugin</artifactId>
-        <configuration>
-            <container>
-                <containerId>tomcat8x</containerId>
-                <zipUrlInstaller>
-                    <url>https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/8.5.69/tomcat-8.5.69.zip</url>
-                </zipUrlInstaller>
-            </container>
-            <configuration>
-                <type>standalone</type>
-                <home>
-                    ${project.build.directory}/apache-tomcat-${tomcat.version}
-                </home>
-                <properties>
-                    <cargo.servlet.port>${tomcat.port}</cargo.servlet.port>
-                    <cargo.logging>low</cargo.logging>
-                </properties>
-            </configuration>
-            <deployables>
-                <deployable>
-                    <groupId>${project.groupId}</groupId>
-                    <artifactId>${project.artifactId}</artifactId>
-                    <type>war</type>
-                    <properties>
-                        <context>/mapstore</context>
-                    </properties>
-                </deployable>
-            </deployables>
-        </configuration>
-    </plugin>
+      
       <!-- Run the application using "mvn jetty:run" -->
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
